@@ -49,9 +49,9 @@ public class User extends AuditableEntity {
 
     @Column(name = "user_status")
     @Enumerated(EnumType.STRING)
-    private UserStatus userStatus;
+    private UserStatus userStatus = UserStatus.ACTIVE;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private Set<UserRole> roles;
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+//    private Set<UserRole> roles;
 
 }
