@@ -1,6 +1,7 @@
 package com.ozalp.sportcenter.controller.api.concretes;
 
 import com.ozalp.sportcenter.business.abstracts.RoleService;
+import com.ozalp.sportcenter.controller.api.abstracts.BaseController;
 import com.ozalp.sportcenter.entities.enums.RoleEnum;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/role")
 @AllArgsConstructor
-public class RoleController {
+public class RoleController implements BaseController {
 
     private final RoleService roleService;
 
