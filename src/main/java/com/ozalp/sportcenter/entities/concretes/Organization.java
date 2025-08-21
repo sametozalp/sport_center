@@ -1,9 +1,8 @@
 package com.ozalp.sportcenter.entities.concretes;
 
 import com.ozalp.sportcenter.entities.abstracts.AuditableEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import com.ozalp.sportcenter.entities.enums.OrganizationStatus;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -19,6 +18,10 @@ public class Organization extends AuditableEntity {
 
     @Column(name = "logo_url")
     private String logoUrl;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "organization_status")
+    private OrganizationStatus organizationStatus = OrganizationStatus.ACTIVE;
 
     //private int subscriptionPlan;
 

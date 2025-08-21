@@ -10,5 +10,5 @@ public interface AthleteMapper {
 
     Athlete toEntity(CreateAthleteRequest request);
 
-    AthleteResponse toResponse(Athlete user);
+    AthleteResponse toResponse(Athlete athlete);
 }
