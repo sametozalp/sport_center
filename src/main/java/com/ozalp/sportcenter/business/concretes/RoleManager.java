@@ -4,6 +4,7 @@ import com.ozalp.sportcenter.business.abstracts.RoleService;
 import com.ozalp.sportcenter.common.utilities.results.Result;
 import com.ozalp.sportcenter.dataAccess.abstracts.RoleRepository;
 import com.ozalp.sportcenter.entities.concretes.Role;
+import com.ozalp.sportcenter.entities.enums.RoleEnum;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -30,9 +31,9 @@ public class RoleManager implements RoleService {
     }
 
     @Override
-    public Role create(String role) {
+    public Role create(RoleEnum roleEnum) {
         Role roleEntity = new Role();
-        roleEntity.setName(role);
+        roleEntity.setName(roleEnum);
         return repository.save(roleEntity);
     }
 

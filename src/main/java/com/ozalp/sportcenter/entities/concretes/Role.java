@@ -1,9 +1,8 @@
 package com.ozalp.sportcenter.entities.concretes;
 
 import com.ozalp.sportcenter.entities.abstracts.AuditableEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import com.ozalp.sportcenter.entities.enums.RoleEnum;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +16,7 @@ import lombok.Setter;
 @Setter
 public class Role extends AuditableEntity {
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "name", unique = true, nullable = false)
-    private String name;
+    private RoleEnum name;
 }
