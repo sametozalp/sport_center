@@ -1,4 +1,6 @@
 package com.ozalp.sportcenter.business.abstracts;
 
-public interface UserRoleService extends BaseService{
+import com.ozalp.sportcenter.entities.concretes.UserRole;
+
+public interface UserRoleService extends BaseService<UserRole> {
 }

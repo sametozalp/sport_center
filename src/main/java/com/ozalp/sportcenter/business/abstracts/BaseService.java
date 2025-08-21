@@ -1,13 +1,12 @@
 package com.ozalp.sportcenter.business.abstracts;
 
-import com.ozalp.sportcenter.business.dto.requests.BaseRequest;
-import com.ozalp.sportcenter.business.dto.responses.BaseResponse;
+import com.ozalp.sportcenter.common.utilities.results.Result;
 
-public interface BaseService {
+public interface BaseService<T> {
 
-    BaseResponse create(BaseRequest request);
+    Result create(T t);
 
-    BaseResponse delete(BaseRequest request);
+    Result delete(T t);
 
-    BaseResponse update(BaseRequest request);
+
 }

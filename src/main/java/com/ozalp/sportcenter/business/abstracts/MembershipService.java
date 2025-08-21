@@ -1,4 +1,6 @@
 package com.ozalp.sportcenter.business.abstracts;
 
-public interface MembershipService extends BaseService{
+import com.ozalp.sportcenter.entities.concretes.Membership;
+
+public interface MembershipService extends BaseService<Membership> {
 }
