@@ -9,6 +9,7 @@ import com.ozalp.sportcenter.dataAccess.abstracts.UserRepository;
 import com.ozalp.sportcenter.entities.concretes.User;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,6 +18,7 @@ public class UserManager implements UserService {
 
     private final UserRepository repository;
     private final UserMapper userMapper;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public Result create(User user) {
@@ -35,6 +37,7 @@ public class UserManager implements UserService {
     @Override
     public Result create(CreateUserRequest request) {
         User user = userMapper.toEntity(request);
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
         User savedUser = repository.save(user);
         return new SuccessDataResult<>(userMapper.toResponse(savedUser));
     }
