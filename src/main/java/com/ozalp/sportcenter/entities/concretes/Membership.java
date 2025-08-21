@@ -36,7 +36,7 @@ public class Membership extends BaseEntity {
     @Column(name = "end_date")
     private LocalDateTime endDate;
 
-    @Column(name = "membership_status", nullable = false)
+    @Column(name = "membership_status")
     @Enumerated(value = EnumType.STRING)
     private MembershipStatus membershipStatus;
 }
