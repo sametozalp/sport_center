@@ -18,4 +18,6 @@ public class CreateUserRequest extends BaseRequest {
 
     private String password;
 
+    private int roleId;
+
 }
