@@ -5,16 +5,17 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Getter
 @Setter
 public class CreateMembershipRequest extends BaseRequest {
 
-    private int organizationId;
+    private UUID organizationId;
 
-    private int athleteId;
+    private UUID athleteId;
 
-    private int memberPackageId;
+    private UUID memberPackageId;
 
     private LocalDateTime startDate;
 

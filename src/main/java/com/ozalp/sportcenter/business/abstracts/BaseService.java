@@ -8,5 +8,4 @@ public interface BaseService<T> {
 
     Result delete(T t);
 
-
 }

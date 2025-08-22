@@ -8,6 +8,8 @@ import com.ozalp.sportcenter.entities.enums.RoleEnum;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 @AllArgsConstructor
 public class RoleManager implements RoleService {
@@ -26,7 +28,7 @@ public class RoleManager implements RoleService {
     }
 
     @Override
-    public Role getById(int id) {
+    public Role getById(UUID id) {
         return repository.findById(id).orElseThrow();
     }
 
