@@ -1,8 +1,6 @@
-package com.ozalp.sportcenter.business.dto.responses;
+package com.ozalp.sportcenter.business.dto.responses.concretes;
 
 import com.ozalp.sportcenter.business.dto.responses.abstracts.BaseResponse;
-import com.ozalp.sportcenter.business.dto.responses.concretes.OrganizationResponse;
-import com.ozalp.sportcenter.business.dto.responses.concretes.UserResponse;
 import lombok.Getter;
 import lombok.Setter;
 

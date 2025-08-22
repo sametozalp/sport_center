@@ -2,6 +2,7 @@ package com.ozalp.sportcenter.controller.api.concretes;
 
 import com.ozalp.sportcenter.business.abstracts.MembershipPackageService;
 import com.ozalp.sportcenter.business.dto.requests.concretes.CreateMembershipPackageRequest;
+import com.ozalp.sportcenter.controller.api.abstracts.BaseController;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/membershipPackage")
 @AllArgsConstructor
-public class MembershipPackageController {
+public class MembershipPackageController implements BaseController {
 
     private final MembershipPackageService membershipPackageService;
 

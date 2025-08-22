@@ -1,7 +1,7 @@
 package com.ozalp.sportcenter.business.concretes;
 
 import com.ozalp.sportcenter.business.abstracts.RoleService;
-import com.ozalp.sportcenter.business.dto.responses.RoleResponse;
+import com.ozalp.sportcenter.business.dto.responses.concretes.RoleResponse;
 import com.ozalp.sportcenter.business.mappers.RoleMapper;
 import com.ozalp.sportcenter.common.utilities.results.DataResult;
 import com.ozalp.sportcenter.common.utilities.results.Result;

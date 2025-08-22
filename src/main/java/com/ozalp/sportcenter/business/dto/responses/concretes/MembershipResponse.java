@@ -1,6 +1,5 @@
 package com.ozalp.sportcenter.business.dto.responses.concretes;
 
-import com.ozalp.sportcenter.business.dto.responses.AthleteResponse;
 import com.ozalp.sportcenter.business.dto.responses.abstracts.BaseResponse;
 import com.ozalp.sportcenter.entities.enums.MembershipStatus;
 import lombok.Getter;

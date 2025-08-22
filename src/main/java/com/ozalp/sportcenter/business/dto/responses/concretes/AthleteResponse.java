@@ -1,4 +1,4 @@
-package com.ozalp.sportcenter.business.dto.responses;
+package com.ozalp.sportcenter.business.dto.responses.concretes;
 
 import com.ozalp.sportcenter.business.dto.responses.abstracts.BaseResponse;
 

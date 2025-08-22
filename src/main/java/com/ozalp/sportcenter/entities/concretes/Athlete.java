@@ -21,7 +21,7 @@ public class Athlete extends AuditableEntity {
 
     @ManyToOne
     @JoinColumn(name = "coach_id")
-    private User coach;
+    private Coach coach;
 
     @ManyToOne
     @JoinColumn(name = "membership_id")

@@ -76,6 +76,10 @@ public class UserManager implements UserService {
 
         User savedUser = repository.save(user);
 
+        Athlete athlete = new Athlete();
+        athlete.setUser(savedUser);
+        athleteService.create(athlete);
+
         return new SuccessDataResult<>(userMapper.toResponse(savedUser));
     }
 }
