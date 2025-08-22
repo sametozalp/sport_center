@@ -72,7 +72,7 @@ public class UserManager implements UserService {
 
         Set<UserRole> userRoleList = new HashSet<>();
         userRoleList.add(userRole);
-        //user.setRoles(userRoleList);
+        user.setRoles(userRoleList);
 
         User savedUser = repository.save(user);
 
