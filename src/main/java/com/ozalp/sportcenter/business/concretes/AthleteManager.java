@@ -2,7 +2,9 @@ package com.ozalp.sportcenter.business.concretes;
 
 import com.ozalp.sportcenter.business.abstracts.AthleteService;
 import com.ozalp.sportcenter.business.dto.requests.concretes.CreateAthleteRequest;
+import com.ozalp.sportcenter.business.dto.responses.AthleteResponse;
 import com.ozalp.sportcenter.business.mappers.AthleteMapper;
+import com.ozalp.sportcenter.common.utilities.results.DataResult;
 import com.ozalp.sportcenter.common.utilities.results.Result;
 import com.ozalp.sportcenter.common.utilities.results.SuccessDataResult;
 import com.ozalp.sportcenter.dataAccess.abstracts.AthleteRepository;
@@ -42,6 +44,12 @@ public class AthleteManager implements AthleteService {
     public Athlete getById(UUID id) {
         return repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(Athlete.class, id));
+    }
+
+    @Override
+    public DataResult<AthleteResponse> getDtoById(UUID id) {
+        Athlete athlete = getById(id);
+        return new SuccessDataResult<>(athleteMapper.toResponse(athlete));
     }
 
 }

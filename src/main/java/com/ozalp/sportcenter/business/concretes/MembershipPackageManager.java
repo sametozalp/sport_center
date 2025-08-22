@@ -4,6 +4,7 @@ import com.ozalp.sportcenter.business.abstracts.MembershipPackageService;
 import com.ozalp.sportcenter.business.dto.requests.concretes.CreateMembershipPackageRequest;
 import com.ozalp.sportcenter.business.dto.responses.concretes.MembershipPackageResponse;
 import com.ozalp.sportcenter.business.mappers.MembershipPackageMapper;
+import com.ozalp.sportcenter.common.utilities.results.DataResult;
 import com.ozalp.sportcenter.common.utilities.results.Result;
 import com.ozalp.sportcenter.common.utilities.results.SuccessDataResult;
 import com.ozalp.sportcenter.dataAccess.abstracts.MembershipPackageRepository;
@@ -36,6 +37,12 @@ public class MembershipPackageManager implements MembershipPackageService {
     public MembershipPackage getById(UUID id) {
         return repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(MembershipPackage.class, id));
+    }
+
+    @Override
+    public DataResult<MembershipPackageResponse> getDtoById(UUID id) {
+        MembershipPackage membershipPackage = getById(id);
+        return new SuccessDataResult<>(membershipPackageMapper.toResponse(membershipPackage));
     }
 
     @Override

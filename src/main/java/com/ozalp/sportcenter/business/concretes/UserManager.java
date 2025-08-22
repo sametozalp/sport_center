@@ -4,7 +4,9 @@ import com.ozalp.sportcenter.business.abstracts.AthleteService;
 import com.ozalp.sportcenter.business.abstracts.RoleService;
 import com.ozalp.sportcenter.business.abstracts.UserService;
 import com.ozalp.sportcenter.business.dto.requests.concretes.CreateUserRequest;
+import com.ozalp.sportcenter.business.dto.responses.concretes.UserResponse;
 import com.ozalp.sportcenter.business.mappers.UserMapper;
+import com.ozalp.sportcenter.common.utilities.results.DataResult;
 import com.ozalp.sportcenter.common.utilities.results.Result;
 import com.ozalp.sportcenter.common.utilities.results.SuccessDataResult;
 import com.ozalp.sportcenter.dataAccess.abstracts.UserRepository;
@@ -48,6 +50,12 @@ public class UserManager implements UserService {
     public User getById(UUID id) {
         return repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(User.class, id));
+    }
+
+    @Override
+    public DataResult<UserResponse> getDtoById(UUID id) {
+        User user = getById(id);
+        return new SuccessDataResult<>(userMapper.toResponse(user));
     }
 
     @Transactional
