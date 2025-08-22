@@ -7,9 +7,13 @@ import com.ozalp.sportcenter.business.mappers.MembershipPackageMapper;
 import com.ozalp.sportcenter.common.utilities.results.Result;
 import com.ozalp.sportcenter.common.utilities.results.SuccessDataResult;
 import com.ozalp.sportcenter.dataAccess.abstracts.MembershipPackageRepository;
+import com.ozalp.sportcenter.entities.concretes.Athlete;
 import com.ozalp.sportcenter.entities.concretes.MembershipPackage;
+import com.ozalp.sportcenter.exceptionHandler.exceptions.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @Service
 @AllArgsConstructor
@@ -26,6 +30,12 @@ public class MembershipPackageManager implements MembershipPackageService {
     @Override
     public Result delete(MembershipPackage membershipPackage) {
         return null;
+    }
+
+    @Override
+    public MembershipPackage getById(UUID id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(MembershipPackage.class, id));
     }
 
     @Override

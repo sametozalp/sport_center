@@ -7,8 +7,6 @@ import java.util.UUID;
 
 public interface RoleService extends BaseService<Role> {
 
-    Role getById(UUID id);
-
     Role create(RoleEnum roleEnum);
 
 }

@@ -7,8 +7,11 @@ import com.ozalp.sportcenter.common.utilities.results.Result;
 import com.ozalp.sportcenter.common.utilities.results.SuccessDataResult;
 import com.ozalp.sportcenter.dataAccess.abstracts.AthleteRepository;
 import com.ozalp.sportcenter.entities.concretes.Athlete;
+import com.ozalp.sportcenter.exceptionHandler.exceptions.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @Service
 @AllArgsConstructor
@@ -34,4 +37,11 @@ public class AthleteManager implements AthleteService {
         athlete.markAsDeleted();
         return new SuccessDataResult<>(athleteMapper.toResponse(repository.save(athlete)));
     }
+
+    @Override
+    public Athlete getById(UUID id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(Athlete.class, id));
+    }
+
 }

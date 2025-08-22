@@ -8,18 +8,17 @@ import com.ozalp.sportcenter.business.mappers.UserMapper;
 import com.ozalp.sportcenter.common.utilities.results.Result;
 import com.ozalp.sportcenter.common.utilities.results.SuccessDataResult;
 import com.ozalp.sportcenter.dataAccess.abstracts.UserRepository;
+import com.ozalp.sportcenter.entities.concretes.Athlete;
 import com.ozalp.sportcenter.entities.concretes.Role;
 import com.ozalp.sportcenter.entities.concretes.User;
 import com.ozalp.sportcenter.entities.concretes.UserRole;
+import com.ozalp.sportcenter.exceptionHandler.exceptions.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 @AllArgsConstructor
@@ -43,6 +42,12 @@ public class UserManager implements UserService {
         user.markAsDeleted();
         repository.save(user);
         return new Result(true);
+    }
+
+    @Override
+    public User getById(UUID id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(User.class, id));
     }
 
     @Transactional
