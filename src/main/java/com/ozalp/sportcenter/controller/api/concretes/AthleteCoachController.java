@@ -21,4 +21,9 @@ public class AthleteCoachController {
     ResponseEntity<?> assignCoachToAthlete(@RequestParam UUID athleteId, @RequestParam UUID coachId) {
         return ResponseEntity.ok(athleteCoachService.assignCoachToAthlete(athleteId, coachId));
     }
+
+    @PostMapping("/createCoach")
+    ResponseEntity<?> createCoach(@RequestParam UUID athleteId) {
+        return ResponseEntity.ok(athleteCoachService.createCoach(athleteId));
+    }
 }

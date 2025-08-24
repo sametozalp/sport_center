@@ -25,7 +25,7 @@ public class AthleteManager implements AthleteService {
     private final AthleteMapper athleteMapper;
 
     @Override
-    public Result create(CreateAthleteRequest request) {
+    public DataResult<AthleteResponse> create(CreateAthleteRequest request) {
         Athlete athlete = athleteMapper.toEntity(request);
         return create(athlete);
     }
@@ -33,7 +33,7 @@ public class AthleteManager implements AthleteService {
 
 
     @Override
-    public Result create(Athlete athlete) {
+    public DataResult<AthleteResponse> create(Athlete athlete) {
         Athlete saved = repository.save(athlete);
         return new SuccessDataResult<>(athleteMapper.toResponse(saved));
     }

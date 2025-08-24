@@ -10,6 +10,6 @@ import java.util.UUID;
 
 public interface AthleteService extends BaseService<Athlete, AthleteResponse> {
 
-    Result create(CreateAthleteRequest request);
+    DataResult<AthleteResponse> create(CreateAthleteRequest request);
 
 }

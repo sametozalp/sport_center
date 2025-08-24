@@ -24,7 +24,7 @@ public class MembershipManager implements MembershipService {
     private final MembershipRepository repository;
 
     @Override
-    public Result create(Membership membership) {
+    public DataResult<MembershipResponse> create(Membership membership) {
         return new SuccessDataResult<>(membershipMapper.toResponse(repository.save(membership)));
     }
 

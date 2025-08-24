@@ -23,9 +23,8 @@ public class RoleManager implements RoleService {
     private final RoleMapper roleMapper;
 
     @Override
-    public Result create(Role role) {
-        repository.save(role);
-        return new Result(true);
+    public DataResult<RoleResponse> create(Role role) {
+        return new SuccessDataResult<>(roleMapper.toResponse(repository.save(role)));
     }
 
     @Override

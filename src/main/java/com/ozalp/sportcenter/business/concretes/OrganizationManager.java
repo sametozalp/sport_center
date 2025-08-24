@@ -24,7 +24,7 @@ public class OrganizationManager implements OrganizationService {
     private final OrganizationRepository repository;
 
     @Override
-    public Result create(Organization organization) {
+    public DataResult<OrganizationResponse> create(Organization organization) {
         return new SuccessDataResult<>(organizationMapper.toResponse(repository.save(organization)));
     }
 

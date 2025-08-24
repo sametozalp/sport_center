@@ -5,8 +5,11 @@ import com.ozalp.sportcenter.business.abstracts.AthleteCoachService;
 import com.ozalp.sportcenter.business.abstracts.CoachService;
 import com.ozalp.sportcenter.business.abstracts.UserService;
 import com.ozalp.sportcenter.business.dto.responses.concretes.AthleteResponse;
+import com.ozalp.sportcenter.business.dto.responses.concretes.CoachResponse;
 import com.ozalp.sportcenter.business.mappers.AthleteMapper;
+import com.ozalp.sportcenter.business.mappers.CoachMapper;
 import com.ozalp.sportcenter.common.utilities.results.DataResult;
+import com.ozalp.sportcenter.common.utilities.results.Result;
 import com.ozalp.sportcenter.common.utilities.results.SuccessDataResult;
 import com.ozalp.sportcenter.entities.concretes.Athlete;
 import com.ozalp.sportcenter.entities.concretes.Coach;
@@ -29,5 +32,14 @@ public class AthleteCoachManager implements AthleteCoachService {
         Coach coach = coachService.getById(coachId);
         athlete.setCoach(coach);
         return new SuccessDataResult<>(athleteMapper.toResponse(athlete));
+    }
+
+    @Override
+    public DataResult<CoachResponse> createCoach(UUID athleteId) {
+        Athlete athlete = athleteService.getById(athleteId);
+        Coach coach = new Coach();
+        coach.setUser(athlete.getUser());
+        CoachResponse coachResponse = coachService.create(coach).getData();
+        return new SuccessDataResult<>(coachResponse);
     }
 }

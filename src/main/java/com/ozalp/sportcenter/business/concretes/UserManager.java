@@ -33,7 +33,7 @@ public class UserManager implements UserService {
     private final RoleService roleService;
 
     @Override
-    public Result create(User user) {
+    public DataResult<UserResponse> create(User user) {
         User saved = repository.save(user);
         return new SuccessDataResult<>(userMapper.toResponse(saved));
     }

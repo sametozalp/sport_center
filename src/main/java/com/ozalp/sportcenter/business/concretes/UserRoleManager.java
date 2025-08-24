@@ -22,9 +22,8 @@ public class UserRoleManager implements UserRoleService {
     private final UserRoleMapper userRoleMapper;
 
     @Override
-    public Result create(UserRole userRole) {
-        repository.save(userRole);
-        return new Result(true);
+    public DataResult<UserRoleResponse> create(UserRole userRole) {
+        return new SuccessDataResult<>(userRoleMapper.toResponse(repository.save(userRole)));
     }
 
     @Override

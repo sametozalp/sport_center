@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface BaseService<T, R extends BaseResponse> {
 
-    Result create(T t);
+    DataResult<R> create(T t);
 
     Result delete(T t);
 
