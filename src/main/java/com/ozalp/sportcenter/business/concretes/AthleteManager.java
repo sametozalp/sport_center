@@ -23,7 +23,6 @@ public class AthleteManager implements AthleteService {
 
     private final AthleteRepository repository;
     private final AthleteMapper athleteMapper;
-    private final CoachService coachService;
 
     @Override
     public Result create(CreateAthleteRequest request) {
@@ -31,13 +30,7 @@ public class AthleteManager implements AthleteService {
         return create(athlete);
     }
 
-    @Override
-    public DataResult<AthleteResponse> assignCoach(UUID athleteId, UUID coachId) {
-        Athlete athlete = getById(athleteId);
-        Coach coach = coachService.getById(coachId);
-        athlete.setCoach(coach);
-        return new SuccessDataResult<>(athleteMapper.toResponse(athlete));
-    }
+
 
     @Override
     public Result create(Athlete athlete) {

@@ -18,8 +18,8 @@ public class AthleteController implements BaseController {
 
     private final AthleteService athleteService;
 
-    @PostMapping("/assignCoach")
-    ResponseEntity<?> assignCoach(@RequestParam UUID athleteId, @RequestParam UUID coachId) {
-        return ResponseEntity.ok(athleteService.assignCoach(athleteId, coachId));
-    }
+//    @PostMapping("/assignCoach")
+//    ResponseEntity<?> assignCoach(@RequestParam UUID athleteId, @RequestParam UUID coachId) {
+//        return ResponseEntity.ok(athleteService.assignCoach(athleteId, coachId));
+//    }
 }

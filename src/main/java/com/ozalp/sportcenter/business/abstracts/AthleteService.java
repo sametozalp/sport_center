@@ -12,6 +12,4 @@ public interface AthleteService extends BaseService<Athlete, AthleteResponse> {
 
     Result create(CreateAthleteRequest request);
 
-    DataResult<AthleteResponse> assignCoach(UUID athleteId, UUID coachId);
-
 }
