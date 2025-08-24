@@ -15,15 +15,15 @@ import lombok.Setter;
 @Setter
 public class Athlete extends AuditableEntity {
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "coach_id")
-    private Coach coach;
+    private Athlete coach;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "membership_id")
     private Membership membership;
 }

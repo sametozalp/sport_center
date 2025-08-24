@@ -14,6 +14,7 @@ import com.ozalp.sportcenter.entities.concretes.Athlete;
 import com.ozalp.sportcenter.entities.concretes.Role;
 import com.ozalp.sportcenter.entities.concretes.User;
 import com.ozalp.sportcenter.entities.concretes.UserRole;
+import com.ozalp.sportcenter.entities.enums.RoleEnum;
 import com.ozalp.sportcenter.exceptionHandler.exceptions.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
@@ -67,7 +68,7 @@ public class UserManager implements UserService {
         UserRole userRole = new UserRole();
         userRole.setUser(user);
 
-        Role role = roleService.getById(request.getRoleId());
+        Role role = roleService.getByName(RoleEnum.ROLE_ATHLETE);
         userRole.setRole(role);
 
         Set<UserRole> userRoleList = new HashSet<>();

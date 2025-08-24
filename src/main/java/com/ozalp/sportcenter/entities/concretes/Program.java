@@ -17,13 +17,13 @@ import java.time.LocalDate;
 @Setter
 public class Program extends AuditableEntity {
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "athlete_id")
     private Athlete athlete;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "coach_id")
-    private Coach coach;
+    private Athlete coach;
 
     @Column(name = "name")
     private String name;

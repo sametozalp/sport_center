@@ -17,7 +17,7 @@ import java.math.BigDecimal;
 @Setter
 public class MembershipPackage extends AuditableEntity {
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "organization_id")
     private Organization organization;
 

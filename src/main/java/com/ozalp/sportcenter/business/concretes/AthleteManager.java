@@ -1,7 +1,6 @@
 package com.ozalp.sportcenter.business.concretes;
 
 import com.ozalp.sportcenter.business.abstracts.AthleteService;
-import com.ozalp.sportcenter.business.abstracts.CoachService;
 import com.ozalp.sportcenter.business.dto.requests.concretes.CreateAthleteRequest;
 import com.ozalp.sportcenter.business.dto.responses.concretes.AthleteResponse;
 import com.ozalp.sportcenter.business.mappers.AthleteMapper;
@@ -10,7 +9,6 @@ import com.ozalp.sportcenter.common.utilities.results.Result;
 import com.ozalp.sportcenter.common.utilities.results.SuccessDataResult;
 import com.ozalp.sportcenter.dataAccess.abstracts.AthleteRepository;
 import com.ozalp.sportcenter.entities.concretes.Athlete;
-import com.ozalp.sportcenter.entities.concretes.Coach;
 import com.ozalp.sportcenter.exceptionHandler.exceptions.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -29,8 +27,6 @@ public class AthleteManager implements AthleteService {
         Athlete athlete = athleteMapper.toEntity(request);
         return create(athlete);
     }
-
-
 
     @Override
     public DataResult<AthleteResponse> create(Athlete athlete) {
@@ -56,4 +52,11 @@ public class AthleteManager implements AthleteService {
         return new SuccessDataResult<>(athleteMapper.toResponse(athlete));
     }
 
+    @Override
+    public DataResult<AthleteResponse> assignCoachToAthlete(UUID athleteId, UUID coachId) {
+        Athlete athlete = getById(athleteId);
+        Athlete coach = getById(coachId);
+        athlete.setCoach(coach);
+        return create(athlete);
+    }
 }

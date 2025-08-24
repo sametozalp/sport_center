@@ -18,15 +18,15 @@ import java.time.LocalDateTime;
 @Setter
 public class Membership extends BaseEntity {
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "organization_id")
     private Organization organization;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "athlete_id")
     private Athlete athlete;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "membership_package_id")
     private MembershipPackage membershipPackage;
 

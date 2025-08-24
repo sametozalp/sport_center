@@ -17,7 +17,7 @@ import java.time.LocalDate;
 @Setter
 public class Workout extends BaseEntity {
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "program_id")
     private Program program;
 

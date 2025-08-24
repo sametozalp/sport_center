@@ -35,7 +35,8 @@ public class RoleManager implements RoleService {
     @Override
     public Role getById(UUID id) {
         return repository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException(Role.class, id));    }
+                .orElseThrow(() -> new EntityNotFoundException(Role.class, id));
+    }
 
     @Override
     public DataResult<RoleResponse> getDtoById(UUID id) {
@@ -48,6 +49,11 @@ public class RoleManager implements RoleService {
         Role roleEntity = new Role();
         roleEntity.setName(roleEnum);
         return repository.save(roleEntity);
+    }
+
+    @Override
+    public Role getByName(RoleEnum roleEnum) {
+        return repository.findByName(roleEnum);
     }
 
 }

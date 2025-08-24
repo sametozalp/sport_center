@@ -8,4 +8,6 @@ public interface RoleService extends BaseService<Role, RoleResponse> {
 
     Role create(RoleEnum roleEnum);
 
+    Role getByName(RoleEnum roleEnum);
+
 }

@@ -22,4 +22,14 @@ public class AthleteController implements BaseController {
 //    ResponseEntity<?> assignCoach(@RequestParam UUID athleteId, @RequestParam UUID coachId) {
 //        return ResponseEntity.ok(athleteService.assignCoach(athleteId, coachId));
 //    }
+
+    @PostMapping("/assignCoachToAthlete")
+    ResponseEntity<?> assignCoachToAthlete(@RequestParam UUID athleteId, @RequestParam UUID coachId) {
+        return ResponseEntity.ok(athleteService.assignCoachToAthlete(athleteId, coachId));
+    }
+
+//    @PostMapping("/createCoach")
+//    ResponseEntity<?> createCoach(@RequestParam UUID athleteId) {
+//        return ResponseEntity.ok(athleteService.createCoach(athleteId));
+//    }
 }
