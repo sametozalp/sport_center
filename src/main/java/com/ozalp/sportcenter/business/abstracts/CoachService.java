@@ -8,5 +8,5 @@ import java.util.UUID;
 
 public interface CoachService extends BaseService<Coach, CoachResponse> {
 
-    Result create(UUID userId);
+    // Result create(UUID userId);
 }

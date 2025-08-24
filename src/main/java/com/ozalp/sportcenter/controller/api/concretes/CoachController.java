@@ -19,8 +19,8 @@ public class CoachController implements BaseController {
 
     private final CoachService coachService;
 
-    @PostMapping("/create")
-    ResponseEntity<?> create(@RequestParam UUID athleteId) {
-        return ResponseEntity.ok(new SuccessDataResult<>(coachService.create(athleteId)));
-    }
+//    @PostMapping("/create")
+//    ResponseEntity<?> create(@RequestParam UUID athleteId) {
+//        return ResponseEntity.ok(new SuccessDataResult<>(coachService.create(athleteId)));
+//    }
 }

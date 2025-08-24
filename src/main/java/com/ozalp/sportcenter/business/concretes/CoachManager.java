@@ -45,11 +45,11 @@ public class CoachManager implements CoachService {
         return null;
     }
 
-    @Override
-    public Result create(UUID userId) {
-        User user = userService.getById(userId);
-        Coach coach = new Coach();
-        coach.setUser(user);
-        return new SuccessDataResult<>(coachMapper.toResponse(repository.save(coach)));
-    }
+//    @Override
+//    public Result create(UUID userId) {
+//        User user = userService.getById(userId);
+//        Coach coach = new Coach();
+//        coach.setUser(user);
+//        return new SuccessDataResult<>(coachMapper.toResponse(repository.save(coach)));
+//    }
 }
