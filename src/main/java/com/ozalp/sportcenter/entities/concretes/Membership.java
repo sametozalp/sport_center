@@ -1,7 +1,6 @@
 package com.ozalp.sportcenter.entities.concretes;
 
 import com.ozalp.sportcenter.entities.abstracts.BaseEntity;
-import com.ozalp.sportcenter.entities.enums.MembershipStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,7 +35,7 @@ public class Membership extends BaseEntity {
     @Column(name = "end_date")
     private LocalDateTime endDate;
 
-    @Column(name = "membership_status")
-    @Enumerated(value = EnumType.STRING)
-    private MembershipStatus membershipStatus;
+//    @Column(name = "membership_status")
+//    @Enumerated(value = EnumType.STRING)
+//    private MembershipStatus membershipStatus;
 }

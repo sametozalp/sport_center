@@ -10,15 +10,15 @@ import java.util.UUID;
 @Getter
 @Setter
 public class CreateMembershipRequest extends BaseRequest {
-
-    private UUID organizationId;
+//
+//    private UUID organizationId;
 
     private UUID athleteId;
 
     private UUID memberPackageId;
 
-    private LocalDateTime startDate;
-
-    private LocalDateTime endDate;
+//    private LocalDateTime startDate;
+//
+//    private LocalDateTime endDate;
 
 }

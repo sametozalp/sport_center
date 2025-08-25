@@ -20,7 +20,6 @@ import java.util.UUID;
 @AllArgsConstructor
 public class AthleteUserManager implements AthleteUserService {
 
-    private final UserService userService;
     private final AthleteService athleteService;
     private final RoleService roleService;
     private final UserRoleService userRoleService;

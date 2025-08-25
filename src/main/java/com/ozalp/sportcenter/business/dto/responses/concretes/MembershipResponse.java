@@ -1,15 +1,17 @@
 package com.ozalp.sportcenter.business.dto.responses.concretes;
 
 import com.ozalp.sportcenter.business.dto.responses.abstracts.BaseResponse;
-import com.ozalp.sportcenter.entities.enums.MembershipStatus;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Getter
 @Setter
 public class MembershipResponse extends BaseResponse {
+
+    private UUID id;
 
     private OrganizationResponse organization;
 
@@ -21,5 +23,5 @@ public class MembershipResponse extends BaseResponse {
 
     private LocalDateTime endDate;
 
-    private MembershipStatus membershipStatus;
+//    private MembershipStatus membershipStatus;
 }
