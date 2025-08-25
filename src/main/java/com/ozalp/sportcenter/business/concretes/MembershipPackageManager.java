@@ -8,7 +8,6 @@ import com.ozalp.sportcenter.common.utilities.results.DataResult;
 import com.ozalp.sportcenter.common.utilities.results.Result;
 import com.ozalp.sportcenter.common.utilities.results.SuccessDataResult;
 import com.ozalp.sportcenter.dataAccess.abstracts.MembershipPackageRepository;
-import com.ozalp.sportcenter.entities.concretes.Athlete;
 import com.ozalp.sportcenter.entities.concretes.MembershipPackage;
 import com.ozalp.sportcenter.exceptionHandler.exceptions.EntityNotFoundException;
 import lombok.AllArgsConstructor;
@@ -30,7 +29,8 @@ public class MembershipPackageManager implements MembershipPackageService {
 
     @Override
     public Result delete(MembershipPackage membershipPackage) {
-        return null;
+        membershipPackage.markAsDeleted();
+        return new SuccessDataResult<>(membershipPackageMapper.toResponse(repository.save(membershipPackage)));
     }
 
     @Override

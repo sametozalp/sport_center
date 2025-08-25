@@ -35,7 +35,8 @@ public class WorkoutExerciseManager implements WorkoutExerciseService {
 
     @Override
     public Result delete(WorkoutExercise workoutExercise) {
-        return null;
+        workoutExercise.markAsDeleted();
+        return new SuccessDataResult<>(workoutExerciseMapper.toResponse(repository.save(workoutExercise)));
     }
 
     @Override

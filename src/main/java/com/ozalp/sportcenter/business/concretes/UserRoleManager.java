@@ -28,7 +28,8 @@ public class UserRoleManager implements UserRoleService {
 
     @Override
     public Result delete(UserRole userRole) {
-        return null;
+        userRole.markAsDeleted();
+        return new SuccessDataResult<>(userRoleMapper.toResponse(repository.save(userRole)));
     }
 
     @Override

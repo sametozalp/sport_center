@@ -1,5 +1,6 @@
 package com.ozalp.sportcenter.entities.concretes;
 
+import com.ozalp.sportcenter.entities.abstracts.AuditableEntity;
 import com.ozalp.sportcenter.entities.abstracts.BaseEntity;
 import com.ozalp.sportcenter.entities.enums.MuscleGroup;
 import jakarta.persistence.Column;
@@ -18,7 +19,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Exercise extends BaseEntity {
+public class Exercise extends AuditableEntity {
 
     @Column(name = "name")
     private String name;

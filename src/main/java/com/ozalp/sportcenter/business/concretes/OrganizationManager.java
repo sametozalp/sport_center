@@ -8,7 +8,6 @@ import com.ozalp.sportcenter.common.utilities.results.DataResult;
 import com.ozalp.sportcenter.common.utilities.results.Result;
 import com.ozalp.sportcenter.common.utilities.results.SuccessDataResult;
 import com.ozalp.sportcenter.dataAccess.abstracts.OrganizationRepository;
-import com.ozalp.sportcenter.entities.concretes.Athlete;
 import com.ozalp.sportcenter.entities.concretes.Organization;
 import com.ozalp.sportcenter.exceptionHandler.exceptions.EntityNotFoundException;
 import lombok.AllArgsConstructor;
@@ -30,7 +29,8 @@ public class OrganizationManager implements OrganizationService {
 
     @Override
     public Result delete(Organization organization) {
-        return null;
+        organization.markAsDeleted();
+        return new SuccessDataResult<>(organizationMapper.toResponse(repository.save(organization)));
     }
 
     @Override

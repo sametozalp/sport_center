@@ -1,5 +1,6 @@
 package com.ozalp.sportcenter.entities.concretes;
 
+import com.ozalp.sportcenter.entities.abstracts.AuditableEntity;
 import com.ozalp.sportcenter.entities.abstracts.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -15,7 +16,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Workout extends BaseEntity {
+public class Workout extends AuditableEntity {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "program_id")

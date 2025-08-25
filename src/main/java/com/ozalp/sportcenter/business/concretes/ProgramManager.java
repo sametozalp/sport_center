@@ -32,7 +32,8 @@ public class ProgramManager implements ProgramService {
 
     @Override
     public Result delete(Program program) {
-        return null;
+        program.markAsDeleted();
+        return new SuccessDataResult<>(programMapper.toResponse(repository.save(program)));
     }
 
     @Override

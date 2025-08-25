@@ -29,7 +29,8 @@ public class ExerciseManager implements ExerciseService {
 
     @Override
     public Result delete(Exercise exercise) {
-        return null;
+        exercise.markAsDeleted();
+        return new SuccessDataResult<>(exerciseMapper.toResponse(repository.save(exercise)));
     }
 
     @Override

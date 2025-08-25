@@ -29,7 +29,8 @@ public class RoleManager implements RoleService {
 
     @Override
     public Result delete(Role role) {
-        return null;
+        role.markAsDeleted();
+        return new SuccessDataResult<>(roleMapper.toResponse(repository.save(role)));
     }
 
     @Override
