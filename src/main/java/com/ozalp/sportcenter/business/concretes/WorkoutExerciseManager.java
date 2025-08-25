@@ -1,5 +1,6 @@
 package com.ozalp.sportcenter.business.concretes;
 
+import com.ozalp.sportcenter.business.abstracts.ExerciseService;
 import com.ozalp.sportcenter.business.abstracts.WorkoutExerciseService;
 import com.ozalp.sportcenter.business.abstracts.WorkoutService;
 import com.ozalp.sportcenter.business.dto.requests.concretes.CreateWorkoutExerciseRequest;
