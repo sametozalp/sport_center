@@ -9,6 +9,8 @@ import com.ozalp.sportcenter.common.utilities.results.Result;
 import com.ozalp.sportcenter.common.utilities.results.SuccessDataResult;
 import com.ozalp.sportcenter.dataAccess.abstracts.AthleteRepository;
 import com.ozalp.sportcenter.entities.concretes.Athlete;
+import com.ozalp.sportcenter.entities.concretes.User;
+import com.ozalp.sportcenter.entities.enums.RoleEnum;
 import com.ozalp.sportcenter.exceptionHandler.exceptions.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -58,5 +60,16 @@ public class AthleteManager implements AthleteService {
         Athlete coach = getById(coachId);
         athlete.setCoach(coach);
         return create(athlete);
+    }
+
+    @Override
+    public Athlete getCoachById(UUID coachId) {
+        Athlete athlete = getById(coachId);
+        User user = athlete.getUser();
+        if(user.getRoles().contains(RoleEnum.ROLE_COACH)) {
+            return athlete;
+        }
+
+        throw new EntityNotFoundException(User.class, coachId);
     }
 }
