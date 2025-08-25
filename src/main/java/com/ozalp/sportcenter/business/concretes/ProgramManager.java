@@ -11,6 +11,7 @@ import com.ozalp.sportcenter.common.utilities.results.SuccessDataResult;
 import com.ozalp.sportcenter.dataAccess.abstracts.ProgramRepository;
 import com.ozalp.sportcenter.entities.concretes.Athlete;
 import com.ozalp.sportcenter.entities.concretes.Program;
+import com.ozalp.sportcenter.exceptionHandler.exceptions.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +37,8 @@ public class ProgramManager implements ProgramService {
 
     @Override
     public Program getById(UUID id) {
-        return null;
+        return repository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(Program.class, id));
     }
 
     @Override

@@ -11,7 +11,6 @@ import java.util.UUID;
 
 @MappedSuperclass
 @Getter
-@Setter
 public abstract class BaseEntity {
 
     @Id

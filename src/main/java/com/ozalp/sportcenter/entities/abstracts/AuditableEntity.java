@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 
 @MappedSuperclass
 @Getter
-@Setter
 public abstract class AuditableEntity extends BaseEntity {
 
     @CreationTimestamp
